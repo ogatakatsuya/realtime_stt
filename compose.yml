@@ -1,0 +1,17 @@
+version: '3'
+services:
+  realtime-stt:
+    container_name: realtime-stt
+    build: .
+    ports:
+      - "5173:5173"
+    volumes:
+      - type: bind
+        source: .
+        target: /app
+      - type: volume
+        source: node_modules
+        target: /app/node_modules
+
+volumes:
+  node_modules:
